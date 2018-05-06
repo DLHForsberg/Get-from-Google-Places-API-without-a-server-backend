@@ -1,0 +1,62 @@
+        <!DOCTYPE html>
+        <h3>Opening hours:</h3>
+      
+      
+            <table>
+                    <tr>
+                        <td>Monday:</td>
+                        <td id="monday">11:00-18:00</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday:</td>
+                        <td id="tuesday">11:00-18:00</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday:</td>
+                        <td id="wednesday">11:00-18:00</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday:</td>
+                        <td id="thursday">11:00-18:00</td>
+                    </tr>
+					          <tr>
+                        <td>Friday:</td>
+                        <td id="friday">11:00-18:00</td>
+                    </tr>
+					          <tr>
+                        <td>Saturday:</td>
+                        <td id="saturday">11:00-14:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday:</td>
+                        <td id="sunday">11:00-15:00</td>
+                    </tr>
+                </table>
+         <script>
+            var url = "{ YOUR AZURE FUNCTION URL }";
+            $.getJSON(url, function (data) {
+                var monday = data.result.opening_hours.weekday_text[0].split(" ");
+                var tuesday = data.result.opening_hours.weekday_text[1].split(" ");
+                var wednesday = data.result.opening_hours.weekday_text[2].split(" ");
+                var thursday = data.result.opening_hours.weekday_text[3].split(" ");
+                var friday = data.result.opening_hours.weekday_text[4].split(" ");
+                var saturday = data.result.opening_hours.weekday_text[5].split(" ");
+                var sunday = data.result.opening_hours.weekday_text[6].split(" ");
+                document.getElementById("monday").innerHTML = monday[1];
+                document.getElementById("tuesday").innerHTML = tuesday[1];
+                document.getElementById("wednesday").innerHTML = wednesday[1];
+                document.getElementById("thursday").innerHTML = thursday[1];
+                document.getElementById("friday").innerHTML = friday[1];
+                document.getElementById("saturday").innerHTML = saturday[1];
+                document.getElementById("sunday").innerHTML = sunday[1];
+                console.log(monday[1]);
+                console.log(tuesday[1]);
+                console.log(wednesday[1]);
+                console.log(thursday[1]);
+                console.log(friday[1]);
+                console.log(saturday[1]);
+                console.log(sunday[1]);
+
+            });
+            </script>
+         </html>
